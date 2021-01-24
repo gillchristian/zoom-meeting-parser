@@ -11,13 +11,12 @@ description:         Please see the README on GitHub at <https://github.com/gill
 dependencies:
 - base >= 4.7 && < 5
 - parsec
-- process
 
 library:
   source-dirs: src
 
 executables:
-  zum:
+  zoom-meeting-parser:
     main:                Main.hs
     source-dirs:         app
     ghc-options:

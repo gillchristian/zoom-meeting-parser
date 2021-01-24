@@ -1,20 +1,21 @@
+{-# LANGUAGE NamedFieldPuns #-}
+
 module Lib where
 
 import Data.List (intercalate)
 import System.Exit (die)
 import System.IO (hPutStrLn, stderr)
-import System.Process (readProcess)
 import Text.Parsec as P
 import Text.Parsec.String as P
 
 someFunc :: IO ()
 someFunc = do
-  result <- P.parse meeting "clipboard" <$> readProcess "xclip" ["-o", "-selection", "clipboard"] ""
+  result <- P.parse meeting "clipboard" <$> getContents
   case result of
     Left _ -> die "Could not parse Zoom meeting inviation.\n\nDid you forget to copy i?"
-    Right inviation -> do
+    Right meeting' -> do
       hPutStrLn stderr "Zoom meeting inviation parsed succesfully :)"
-      print inviation
+      print meeting'
 
 data Meeting = Meeting
   { title :: String,
@@ -24,7 +25,7 @@ data Meeting = Meeting
   }
 
 instance Show Meeting where
-  show (Meeting title time link password) =
+  show Meeting {title, time, link, password} =
     intercalate
       "\n"
       [ "**" <> title <> "**",

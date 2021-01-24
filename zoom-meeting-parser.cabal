@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 3761df4af6fe3b69b5b41398d0ba10db7a345c1d7b49b41cb3b013dbb0d0aed5
+-- hash: 872b2674baca10e03bffdbdf0c31892b634a070e4f0cc494ab92d4d2884eceb3
 
 name:           zoom-meeting-parser
 version:        0.1.0.0
@@ -31,10 +31,9 @@ library
   build-depends:
       base >=4.7 && <5
     , parsec
-    , process
   default-language: Haskell2010
 
-executable zum
+executable zoom-meeting-parser
   main-is: Main.hs
   other-modules:
       Paths_zoom_meeting_parser
@@ -44,6 +43,5 @@ executable zum
   build-depends:
       base >=4.7 && <5
     , parsec
-    , process
     , zoom-meeting-parser
   default-language: Haskell2010
