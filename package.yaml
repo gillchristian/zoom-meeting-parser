@@ -1,0 +1,28 @@
+name:                zoom-meeting-parser
+version:             0.1.0.0
+github:              "gillchristian/zoom-meeting-parser"
+license:             MIT
+
+extra-source-files:
+- README.md
+
+description:         Please see the README on GitHub at <https://github.com/gillchristian/zoom-meeting-parser#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- parsec
+- process
+
+library:
+  source-dirs: src
+
+executables:
+  zum:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - zoom-meeting-parser
