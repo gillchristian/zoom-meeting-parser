@@ -21,11 +21,12 @@ data Meeting = Meeting
   { title :: String,
     time :: String,
     link :: String,
+    meetingId :: String,
     password :: String
   }
 
 instance Show Meeting where
-  show Meeting {title, time, link, password} =
+  show Meeting {title, time, link, meetingId, password} =
     intercalate
       "\n"
       [ "**" <> title <> "**",
@@ -34,6 +35,7 @@ instance Show Meeting where
         "Link de la reunión:",
         link,
         "",
+        "ID de la reunión: " <> meetingId,
         "Contraseña: " <> password
       ]
     where
@@ -89,6 +91,7 @@ meeting =
     <$> (P.manyTill P.anyChar (P.try $ P.string "Topic: ") *> line)
     <*> (P.string "Time: " *> line)
     <*> (P.manyTill P.anyChar (P.string "Join Zoom Meeting") *> P.spaces *> line)
+    <*> (P.manyTill P.anyChar (P.string "Meeting ID: ") *> line)
     <*> (P.manyTill P.anyChar (P.string "Passcode: ") *> line)
 
 line :: P.Parser String

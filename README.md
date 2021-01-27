@@ -53,6 +53,7 @@ Horario: Enero 22, 2021 09:30 PM Amsterdam
 Link de la reunión:
 https://us02web.zoom.us/j/00000000000?pwd=xxxxxxxxx
 
+ID de la reunión: 999 9999 9999
 Contraseña: 000000
 ```
 
