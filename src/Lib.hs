@@ -8,11 +8,11 @@ import System.IO (hPutStrLn, stderr)
 import Text.Parsec as P
 import Text.Parsec.String as P
 
-someFunc :: IO ()
-someFunc = do
-  result <- P.parse meeting "clipboard" <$> getContents
+run :: IO ()
+run = do
+  result <- P.parse meeting "stdio" <$> getContents
   case result of
-    Left _ -> die "Could not parse Zoom meeting inviation.\n\nDid you forget to copy i?"
+    Left _ -> die "Could not parse Zoom meeting inviation. =/"
     Right meeting' -> do
       hPutStrLn stderr "Zoom meeting inviation parsed succesfully :)"
       print meeting'
